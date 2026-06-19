@@ -7,6 +7,15 @@ const app = express();
 
 // IMPORT ROUTE
 const pengajuanRoute = require('./lib/features/pengajuan/data/pengajuan');
+app.use(pengajuanRouter);
+
+(async () => {
+  await pengajuanRouter.initializeDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+})();
 const listPengajuanRoute = require('./lib/features/pengajuan/data/listpengajuan');
 const path = require('path');
 
