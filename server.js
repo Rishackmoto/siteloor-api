@@ -9,6 +9,7 @@ const PORT = Number(process.env.PORT) || 3000;
 
 // IMPORT ROUTE
 const pengajuanRoute = require('./lib/features/pengajuan/data/pengajuan');
+const pengajuanStatusRoute = require('./lib/features/pengajuan/data/status');
 const listPengajuanRoute = require('./lib/features/pengajuan/data/listpengajuan');
 
 // MIDDLEWARE
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // ROUTE
+app.use(pengajuanStatusRoute);
 app.use(pengajuanRoute);
 app.use(listPengajuanRoute);
 
