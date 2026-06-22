@@ -1,0 +1,4 @@
+// Tambahkan di server.js
+
+const laporanRoute = require('./lib/features/laporan/data/laporan');
+app.use('/api/laporan', laporanRoute);
