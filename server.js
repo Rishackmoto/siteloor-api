@@ -8,6 +8,7 @@ const PORT = Number(process.env.PORT) || 3000;
 
 // IMPORT ROUTE
 const pengajuanRoute = require('./lib/features/pengajuan/data/pengajuan');
+const laporanRoute = require('./lib/features/laporan/data/laporan');
 
 // MIDDLEWARE
 app.use(cors({
@@ -21,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ROUTE
 app.use(pengajuanRoute);
+app.use('/api/laporan', laporanRoute);
 
 // TEST
 app.get('/health', (req, res) => {
@@ -38,4 +40,5 @@ app.get('/', (req, res) => {
 // JALANKAN SERVER
 app.listen(PORT, () => {
   console.log(`Server berjalan di port ${PORT}`);
+  console.log('SERVER FILE:', __filename);
 });
