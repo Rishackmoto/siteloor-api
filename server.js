@@ -7,8 +7,9 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 
 // IMPORT ROUTE
-const pengajuanRoute = require('./lib/features/pengajuan/data/pengajuan');
+const pengajuanRoute = require('./lib/features/pelanggan/data/pengajuan');
 const laporanRoute = require('./lib/features/laporan/data/laporan');
+const pelangganRoute = require('./lib/features/pelanggan/data/pelanggan');
 
 // MIDDLEWARE
 app.use(cors({
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTE
 app.use(pengajuanRoute);
 app.use('/api/laporan', laporanRoute);
-
+app.use('/api/pelanggan', pelangganRoute);
 // TEST
 app.get('/health', (req, res) => {
   res.json({
