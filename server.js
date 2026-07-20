@@ -11,6 +11,7 @@ const pengajuanRoute = require('./lib/features/pelanggan/data/pengajuan');
 const laporanRoute = require('./lib/features/laporan/data/laporan');
 const pelangganRoute = require('./lib/features/pelanggan/data/pelanggan');
 const supplierRoute = require('./lib/features/supplier/data/supplier');
+const fcmRoute = require('./lib/features/fcm/data/fcm');
 // MIDDLEWARE
 app.use(cors({
   origin: '*',
@@ -26,6 +27,7 @@ app.use(pengajuanRoute);
 app.use('/api/laporan', laporanRoute);
 app.use('/api/pelanggan', pelangganRoute);
 app.use('/api/supplier', supplierRoute);
+app.use('/api/fcm', fcmRoute);
 
 // TEST
 app.get('/health', (req, res) => {
